@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="img/samsung-icon.jpg" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Redes Sociais</title>
+</head>
+<body>
+  <main>
+    <div class="scene">
+      <div id="telefone">
+        <div class="front">        
+          <iframe src="home.html" name="tela" id="tela"></iframe>
+          <div class="botoes">
+  <button onclick="voltarPagina()"><img src="img/angulo-esquerdo.png" alt="Voltar"></button>
+  <button onclick="irParaHome()"><img src="img/casa.png" alt="Home"></button>
+  <button onclick="proximaPagina()"><img src="img/menu-hamburguer.png" alt="Avançar"></button>
+</div>
+
+        </div>
+        <div class="back">
+        </div>
+      </div>
+    </div>
+
+  </main>
+ 
+
+  <script>
+const telefone = document.getElementById("telefone");
+const tela = document.getElementById("tela");
+
+telefone.addEventListener("click", (e) => {
+  if (e.target.closest('.botoes')) return;
+  telefone.style.transform =
+    telefone.style.transform === "rotateY(180deg)"
+      ? "rotateY(0deg)"
+      : "rotateY(180deg)";
+});
+
+function irParaHome() {
+  tela.src = "home.html";
+}
+
+function voltarPagina() {
+  tela.contentWindow.history.back();
+}
+
+function proximaPagina() {
+  tela.contentWindow.history.forward();
+}
+
+
+
+  </script>
+</body>
+</html>
